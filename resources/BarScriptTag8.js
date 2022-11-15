@@ -13,7 +13,7 @@ async function fetchProducts() {
     headers: { "Content-Type": "application/json" },
   });
 
-  console.log("response from request: " + response);
+  console.log("response from request: " + response.json());
 }
 
 fetchProducts();
