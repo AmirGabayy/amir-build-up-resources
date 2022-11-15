@@ -1,0 +1,20 @@
+
+.bar-child-img {
+    vertical-align: middle;
+    border-radius: 15px;
+}
+
+.bar-child{
+    border-radius: 15px;
+    background-color: white;
+    /* padding: 0px;
+    margin: 0px; */
+}
+
+.bar{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #e2e1e1;
+}
