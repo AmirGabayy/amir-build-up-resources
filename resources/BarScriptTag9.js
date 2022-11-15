@@ -35,6 +35,10 @@ async function fetchProducts() {
   }
 }
 
+$(document).ready(function () {
+  $("body").prepend(`<div> ScriptTag Bar </div>`);
+});
+
 fetchProducts().then((products) => {
   if (products) {
     products.forEach(({ mainImageSrc }) => {
