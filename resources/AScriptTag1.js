@@ -2,7 +2,7 @@
 
 // add jquery
 window.onload = function () {
-  var head = document.getElementsByTagName("head")[0];
+  let head = document.getElementsByTagName("head")[0];
 
   // add jquery
   if (!window.jQuery) {
