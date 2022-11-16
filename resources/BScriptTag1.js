@@ -7,13 +7,13 @@ window.onload = function () {
 
   // add jquery
   if (!window.jQuery) {
-    console.log("start adding jQuery");
+    // console.log("start adding jQuery");
     var script = document.createElement("script");
     script.type = "text/javascript";
     script.src = "http://code.jquery.com/jquery-latest.min.js";
-    console.log("adding jQuery");
+    // console.log("adding jQuery");
     head.appendChild(script);
-    console.log("added jQuery");
+    // console.log("added jQuery");
   }
 
   // add css
@@ -33,13 +33,13 @@ window.onload = function () {
 async function checkJQuery() {
   let head = document.getElementsByTagName("head")[0];
   if (!window.jQuery) {
-    console.log("start adding jQuery");
+    // console.log("start adding jQuery");
     var script = document.createElement("script");
     script.type = "text/javascript";
     script.src = "http://code.jquery.com/jquery-latest.min.js";
-    console.log("adding jQuery");
+    // console.log("adding jQuery");
     head.appendChild(script);
-    console.log("added jQuery");
+    // console.log("added jQuery");
   }
 }
 
