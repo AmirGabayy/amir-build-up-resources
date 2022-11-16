@@ -24,7 +24,7 @@ window.onload = function () {
     link.rel = "stylesheet";
     link.type = "text/css";
     link.href =
-      "https://cdn.statically.io/gh/AmirGabayy/amir-build-up-resources/main/resources/style.css";
+      "https://cdn.statically.io/gh/AmirGabayy/amir-build-up-resources/main/resources/style1.css";
     link.media = "all";
     head.appendChild(link);
   }
