@@ -115,13 +115,14 @@ async function appendBar(products) {
   let body = document.getElementsByTagName("body")[0];
 
   // $("body").prepend(barHtmlStr);
-  body.prepend(barHtmlStr);
+  body.insertAdjacentHTML("beforebegin", barHtmlStr);
+  let barStory = document.getElementById("barStory");
 
   products.forEach(({ mainImageSrc }) => {
     const childHtmlStr = getChildHtml(mainImageSrc);
 
-    let barStory = document.getElementById("barStory");
-    barStory.append(childHtmlStr);
+    barStory.insertAdjacentHTML("beforeend", childHtmlStr);
+    // barStory.append(childHtmlStr);
     // $("#barStory").append(childHtmlStr);
   });
 }
