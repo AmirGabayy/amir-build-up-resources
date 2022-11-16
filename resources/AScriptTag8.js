@@ -31,6 +31,7 @@ window.onload = function () {
 };
 
 async function checkJQuery() {
+  let head = document.getElementsByTagName("head")[0];
   if (!window.jQuery) {
     console.log("start adding jQuery");
     var script = document.createElement("script");
@@ -43,6 +44,7 @@ async function checkJQuery() {
 }
 
 async function checkCss() {
+  let head = document.getElementsByTagName("head")[0];
   // add css
   let cssId = "barCss";
   if (!document.getElementById(cssId)) {
