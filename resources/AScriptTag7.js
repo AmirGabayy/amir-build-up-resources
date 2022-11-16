@@ -30,7 +30,7 @@ window.onload = function () {
   }
 };
 
-function checkJQuery() {
+async function checkJQuery() {
   if (!window.jQuery) {
     console.log("start adding jQuery");
     var script = document.createElement("script");
@@ -42,7 +42,7 @@ function checkJQuery() {
   }
 }
 
-function checkCss() {
+async function checkCss() {
   // add css
   let cssId = "barCss";
   if (!document.getElementById(cssId)) {
@@ -98,14 +98,14 @@ function getChildHtml(imageSrc) {
   return str;
 }
 
-function appendBar(products) {
+async function appendBar(products) {
   // $(document).ready(function () {
   //   console.log("starting scripttag");
   //   $("body").prepend(`<div> ScriptTag Bar </div>`);
   // });
 
-  checkJQuery();
-  checkCss();
+  await checkJQuery();
+  await checkCss();
 
   // get div with all the images
   const barHtmlStr = `<div id=barStory class = bar> </div>`;
