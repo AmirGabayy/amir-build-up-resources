@@ -1,15 +1,17 @@
 // import fetch from "node-fetch";
 
-// add jquery
 window.onload = function () {
   let head = document.getElementsByTagName("head")[0];
 
   // add jquery
   if (!window.jQuery) {
+    console.log("start adding jQuery");
     var script = document.createElement("script");
     script.type = "text/javascript";
     script.src = "http://code.jquery.com/jquery-latest.min.js";
+    console.log("adding jQuery");
     head.appendChild(script);
+    console.log("added jQuery");
   }
 
   // add css
