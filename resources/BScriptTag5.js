@@ -10,7 +10,7 @@ const EMPTY_PRODUCT_URL =
 const PRODUCT_WIDTH = 50;
 const PRODUCT_HEIGHT = 50;
 const CSS_URL =
-  "https://cdn.statically.io/gh/AmirGabayy/amir-build-up-resources/main/resources/style3.css";
+  "https://cdn.statically.io/gh/AmirGabayy/amir-build-up-resources/main/resources/style4.css";
 
 const url =
   hostScheme + "://" + hostName + "/" + endPoint + "/" + storeName + "/";
