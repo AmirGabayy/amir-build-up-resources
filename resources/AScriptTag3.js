@@ -3,6 +3,8 @@
 window.onload = function () {
   let head = document.getElementsByTagName("head")[0];
 
+  console.log("starting window.load");
+
   // add jquery
   if (!window.jQuery) {
     console.log("start adding jQuery");
