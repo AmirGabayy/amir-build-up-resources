@@ -1,6 +1,6 @@
 // import fetch from "node-fetch";
 
-window.ready = function () {
+window.onload = function () {
   let head = document.getElementsByTagName("head")[0];
 
   console.log("starting window.load");
@@ -29,6 +29,33 @@ window.ready = function () {
     head.appendChild(link);
   }
 };
+
+function checkJQuery() {
+  if (!window.jQuery) {
+    console.log("start adding jQuery");
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "http://code.jquery.com/jquery-latest.min.js";
+    console.log("adding jQuery");
+    head.appendChild(script);
+    console.log("added jQuery");
+  }
+}
+
+function checkCss() {
+  // add css
+  let cssId = "barCss";
+  if (!document.getElementById(cssId)) {
+    var link = document.createElement("link");
+    link.id = cssId;
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href =
+      "https://cdn.statically.io/gh/AmirGabayy/amir-build-up-resources/main/resources/style.css";
+    link.media = "all";
+    head.appendChild(link);
+  }
+}
 
 const method = "GET";
 const hostScheme = "https";
@@ -76,6 +103,9 @@ function appendBar(products) {
   //   console.log("starting scripttag");
   //   $("body").prepend(`<div> ScriptTag Bar </div>`);
   // });
+
+  checkJQuery();
+  checkCss();
 
   // get div with all the images
   const barHtmlStr = `<div id=barStory class = bar> </div>`;
