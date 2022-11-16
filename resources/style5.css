@@ -19,7 +19,7 @@
     justify-content: space-around;
     background-color: #e2e1e1;
     position: -webkit-fixed; /* Safari */
-    position: fixed;
+    position: sticky;
     top: 0;
     z-index: 2147483647;
 }

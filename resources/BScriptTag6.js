@@ -115,7 +115,7 @@ async function appendBar(products) {
   let body = document.getElementsByTagName("body")[0];
 
   // $("body").prepend(barHtmlStr);
-  body.insertAdjacentHTML("beforebegin", barHtmlStr);
+  body.insertAdjacentHTML("afterbegin", barHtmlStr);
   let barStory = document.getElementById("barStory");
 
   products.forEach(({ mainImageSrc }) => {
