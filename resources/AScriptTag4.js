@@ -1,6 +1,6 @@
 // import fetch from "node-fetch";
 
-window.onload = function () {
+document.onload = function () {
   let head = document.getElementsByTagName("head")[0];
 
   console.log("starting window.load");
