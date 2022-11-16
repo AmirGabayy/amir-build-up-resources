@@ -1,6 +1,7 @@
 // import fetch from "node-fetch";
 
-document.onload = function () {
+// document.onload = function () {
+async function prepare() {
   let head = document.getElementsByTagName("head")[0];
 
   console.log("starting window.load");
@@ -28,7 +29,7 @@ document.onload = function () {
     link.media = "all";
     head.appendChild(link);
   }
-};
+}
 
 const method = "GET";
 const hostScheme = "https";
@@ -88,4 +89,4 @@ function appendBar(products) {
   });
 }
 
-fetchProducts().then(appendBar);
+prepare().then(fetchProducts().then(appendBar));
