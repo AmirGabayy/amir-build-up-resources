@@ -112,11 +112,17 @@ async function appendBar(products) {
   // get div with all the images
   const barHtmlStr = `<div id=barStory class = bar> </div>`;
 
-  $("body").prepend(barHtmlStr);
+  let body = document.getElementsByTagName("body")[0];
+
+  // $("body").prepend(barHtmlStr);
+  body.prepend(barHtmlStr);
 
   products.forEach(({ mainImageSrc }) => {
     const childHtmlStr = getChildHtml(mainImageSrc);
-    $("#barStory").append(childHtmlStr);
+
+    let barStory = document.getElementById("barStory");
+    barStory.append(childHtmlStr);
+    // $("#barStory").append(childHtmlStr);
   });
 }
 
