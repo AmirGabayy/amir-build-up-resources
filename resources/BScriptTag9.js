@@ -2,12 +2,12 @@
 
 const method = "GET";
 const hostScheme = "https";
-const hostName = "c3d5-2a0d-6fc0-f33-f200-516e-8b6f-5cb7-39f6.ngrok.io";
+const hostName = "ebea-2a0d-6fc0-2818-c200-b8b2-ebc7-6eb4-519f.ngrok.io";
 
 const productsBarEndPoint = "bars/retrieve_products_bar";
 const barDetailsEndPoint = "bars/retrieve_bar";
 
-const storeName = "amir-test-store-app.myshopify.com";
+const storeId = window?.Shopify?.shop || "amir-test-store-app.myshopify.com";
 const EMPTY_PRODUCT_URL =
   "https://static.vecteezy.com/system/resources/previews/002/916/029/original/realistic-white-round-podium-illuminated-by-spotlight-empty-winner-stage-product-pedestal-exhibition-platform-vector.jpg";
 const PRODUCT_WIDTH = 50;
@@ -138,7 +138,7 @@ async function fetchBarDetails() {
     "/" +
     barDetailsEndPoint +
     "/" +
-    storeName +
+    storeId +
     "/";
 
   const method = "GET";
@@ -164,7 +164,6 @@ async function fetchBarDetails() {
 }
 
 const barDiv = document.createElement("div");
-barDiv.setAttribute("id", "storyBar");
 barDiv.setAttribute("class", "bar");
 
 async function appendBarWithDetails(barDetails) {
@@ -173,6 +172,7 @@ async function appendBarWithDetails(barDetails) {
 
   // get div with all the images
   // const barHtmlStr = `<div id=barStory class = bar> </div>`;
+  barDiv.setAttribute("id", barDetails.barId);
 
   barDiv.style.backgroundColor = barDetails?.color || "grey";
 
@@ -196,7 +196,7 @@ async function fetchProductsBar() {
     "/" +
     productsBarEndPoint +
     "/" +
-    storeName +
+    storeId +
     "/";
 
   const method = "GET";
@@ -221,36 +221,52 @@ async function fetchProductsBar() {
   }
 }
 
-{
-  /* <div class = "bar-child">
-<img class = "bar-child-img" src=${imageSrc ? imageSrc : EMPTY_PRODUCT_URL}
- width=${PRODUCT_WIDTH} height=${PRODUCT_HEIGHT}></img>
-</div>`; */
-}
+async function handleProductClick(barId, productId, productLink) {
+  const barClickUrl =
+    hostScheme +
+    "://" +
+    hostName +
+    "/bars/product_click/" +
+    barId +
+    "&" +
+    storeId +
+    "&" +
+    productId;
 
-function handleProductClick() {
-  const barClickUrl = hostScheme + "://" + hostName + "/" + "bars/click";
-
-  const method = "GET";
+  const method = "POST";
 
   console.log("clicked, sending requst to url: " + barClickUrl);
 
+  // send a click update to server
+
   fetch(barClickUrl, {
     method,
-    headers: {
-      "Content-Type": "application/json",
-    },
   });
+
+  // redirect to the product page
+  console.log("redirecting to " + productLink);
+  // window.location.replace(productLink);
+  window.location.href = productLink;
 }
 
 async function appendProductsToBar(productsBarDetails) {
   const barBody = document.createElement("div");
   barBody.setAttribute("class", "bar-products");
 
-  productsBarDetails.forEach(({ mainImageSrc, link }) => {
+  productsBarDetails.forEach(({ mainImageSrc, link, productId }) => {
+    // clean the product id
+    const id =
+      productId.indexOf("/") != -1
+        ? productId.substring(productId.lastIndexOf("/") + 1)
+        : productId;
+
     const childDiv = document.createElement("div");
+    childDiv.setAttribute("id", id);
     childDiv.setAttribute("class", "bar-child");
-    childDiv.onclick = handleProductClick;
+    childDiv.onclick = function () {
+      handleProductClick(barDiv.getAttribute("id"), id, link);
+      // alert("clicked " + id);
+    };
 
     // create the img under the child's div
     const childDivImg = document.createElement("img");
@@ -285,4 +301,5 @@ fetchBarDetails()
   .then(appendBarWithDetails)
   .then(fetchProductsBar)
   .then(appendProductsToBar);
+// .then(handleProductClick);
 // fetchProducts().then(appendBar);
