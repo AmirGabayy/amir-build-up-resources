@@ -13,13 +13,13 @@ const EMPTY_PRODUCT_URL =
 const PRODUCT_WIDTH = 50;
 const PRODUCT_HEIGHT = 50;
 const CSS_URL =
-  "https://cdn.statically.io/gh/AmirGabayy/amir-build-up-resources/main/resources/style8.css";
+  "https://cdn.statically.io/gh/AmirGabayy/amir-build-up-resources/main/resources/cstyle.css";
 // "style7.css";
 
 window.onload = function () {
   let head = document.getElementsByTagName("head")[0];
 
-  console.log("starting window.load");
+  // console.log("starting window.load");
 
   // add jquery
   if (!window.jQuery) {
@@ -74,7 +74,7 @@ async function checkCss() {
 }
 
 async function fetchProducts() {
-  console.log("sending requst to url: " + url);
+  // console.log("sending requst to url: " + url);
 
   const response = await fetch(url, {
     method,
@@ -86,7 +86,7 @@ async function fetchProducts() {
   if (response.ok) {
     const products = await response.json();
 
-    console.log("products: " + JSON.stringify(products));
+    // console.log("products: " + JSON.stringify(products));
 
     return products;
   } else {
@@ -143,7 +143,7 @@ async function fetchBarDetails() {
 
   const method = "GET";
 
-  console.log("sending requst to url: " + barDetailsUrl);
+  // console.log("sending requst to url: " + barDetailsUrl);
 
   const response = await fetch(barDetailsUrl, {
     method,
@@ -155,7 +155,7 @@ async function fetchBarDetails() {
   if (response.ok) {
     const barDetails = await response.json();
 
-    console.log("barDetails: " + JSON.stringify(barDetails));
+    // console.log("barDetails: " + JSON.stringify(barDetails));
 
     return barDetails[0];
   } else {
@@ -201,7 +201,7 @@ async function fetchProductsBar() {
 
   const method = "GET";
 
-  console.log("sending requst to url: " + productsBarDetailsUrl);
+  // console.log("sending requst to url: " + productsBarDetailsUrl);
 
   const response = await fetch(productsBarDetailsUrl, {
     method,
@@ -213,7 +213,7 @@ async function fetchProductsBar() {
   if (response.ok) {
     const productsBarDetails = await response.json();
 
-    console.log("productsBarDetails: " + JSON.stringify(productsBarDetails));
+    // console.log("productsBarDetails: " + JSON.stringify(productsBarDetails));
 
     return productsBarDetails;
   } else {
@@ -235,7 +235,7 @@ async function handleProductClick(barId, productId, productLink) {
 
   const method = "POST";
 
-  console.log("clicked, sending requst to url: " + barClickUrl);
+  // console.log("clicked, sending requst to url: " + barClickUrl);
 
   // send a click update to server
 
@@ -244,7 +244,7 @@ async function handleProductClick(barId, productId, productLink) {
   });
 
   // redirect to the product page
-  console.log("redirecting to " + productLink);
+  // console.log("redirecting to " + productLink);
   // window.location.replace(productLink);
   window.location.href = productLink;
 }
