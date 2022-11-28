@@ -31,6 +31,7 @@
     border-radius: 15px;
     background-color: white;
     cursor: pointer;
+    box-shadow:  0px 0px 10px #7c7c7c;
 
     /* for gradient */
     /* position: relative;
@@ -64,6 +65,9 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
     /* position: inherit; */
     /* background-color: #e2e1e1; */
 }
