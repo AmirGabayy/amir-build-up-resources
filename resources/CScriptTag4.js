@@ -2,7 +2,7 @@
 
 const method = "GET";
 const hostScheme = "https";
-const hostName = "7039-31-154-30-222.ngrok.io";
+const hostName = "6469-2a0d-6fc0-2830-c500-7cb7-7a27-dc69-fe3f.ngrok.io";
 
 const productsBarEndPoint = "bars/retrieve_products_bar";
 const barDetailsEndPoint = "bars/retrieve_bar";
